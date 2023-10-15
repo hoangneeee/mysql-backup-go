@@ -1,0 +1,24 @@
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfiledev
+    container_name: 'mysql-backup-dev'
+    restart: on-failure
+    volumes:
+      - ./backups:/app/backups
+    develop:
+      watch:
+        - action: rebuild
+          path: go.mod
+        - action: rebuild
+          path: Dockerfile
+        - action: rebuild
+          path: go.sum
+        - action: sync
+          path: main.go
+          target: /app/main.go
+        - action: sync
+          path: config.yml
+          target: /app/config.yml

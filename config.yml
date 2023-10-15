@@ -1,0 +1,17 @@
+schedule:
+    cron: "@daily"
+
+database:
+  username: username
+  password: password
+  host: host
+  dbname: name
+  port: 3306
+
+aws:
+  enable: true
+  accessKey: your_aws_access_key
+  secretKey: your_aws_secret_key
+  region: us-east-1
+  bucket: your_s3_bucket_name
+  backupFolder: backups/

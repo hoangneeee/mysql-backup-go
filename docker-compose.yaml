@@ -1,0 +1,12 @@
+# this file is here to facilitate development/testing
+# $ docker compose up -d --build --force-recreate
+
+services:
+  backup:
+    build:
+      context: .
+    container_name: "mysql-backup-service"
+    restart: on-failure
+    volumes:
+      - ./backups:/app/backups
+      - ./config.yml:/app/config.yml
